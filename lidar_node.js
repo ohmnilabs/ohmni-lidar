@@ -9,7 +9,7 @@
 var LidarSerial = require("./lidar_serial");
 
 /* ======= Main Class ======= */
-function LidarNode(portstr, detarr, control_model) {
+function LidarNode(portstr, detarr) {
 
     // Choose default portstr if we don't have any input
     if (portstr == null) portstr = "/dev/usb/tty1-7.1";
@@ -32,9 +32,6 @@ function LidarNode(portstr, detarr, control_model) {
         ]
     }
     this._det_lidar = detarr;
-
-    // Save control model for behavior control
-    this._model = control_model;
 
     // Stop handling on obstacle detection, on by default 
     this._collision_stop = true;
